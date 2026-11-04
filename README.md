@@ -24,3 +24,9 @@ WHERE State = 'Maryland'
 
 --What is the number of transactions per month and average transaction amount by product category for the sales territory?
 
+SELECT  Category, Date , AVG(SalesTotal), COUNT(*)
+FROM Inventory_Categories JOIN Management JOIN Online_Sales
+WHERE State = 'Maryland'
+GROUP BY Category, Date
+ORDER BY AVG(SalesTotal), Category
+
