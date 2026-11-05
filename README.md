@@ -45,3 +45,30 @@ ORDER BY AVG(Sale_Amount) ASC
 --What is your recommendation for where to focus sales attention in the next quarter?
 
 My recommendation would be to add sales training to stores 903 which is the store that brings in the least averaged sales in the state of Maryland, 836,850, and 816 to assess if training would increase the sales for these stores as a controlled group then implement the developmental training to all stores if deemed successful.
+
+
+-- BONUS QUESTION
+-- Create a list of all transactions that took place on January 15, 2024, sorted by sale amount from highest to lowest.
+
+SELECT ProdNum, SalesTotal, YEAR(Date), MONTH(Date), DAY(Date)
+FROM Online_Sales
+WHERE YEAR(Date) = '2024'
+AND MONTH(Date) = '1'
+AND DAY(Date) = '15'
+GROUP BY Date,ProdNum,SalesTotal
+ORDER BY YEAR(Date), MONTH(Date), DAY(Date)
+
+FOR MARYLAND
+SELECT ProdNum, SalesTotal, YEAR(Date), MONTH(Date), DAY(Date), State,Region
+FROM Online_Sales JOIN Management
+WHERE YEAR(Date) = '2024'
+AND MONTH(Date) = '1'
+AND DAY(Date) = '15'
+AND State = 'Maryland'
+GROUP BY Date,ProdNum,SalesTotal, State,Region
+ORDER BY YEAR(Date), MONTH(Date), DAY(Date)
+
+---- What is the total sales revenue across all transactions? What is the average transaction amount? 
+SELECT SUM(SalesTotal), AVG(SalesTotal)
+FROM Online_Sales,Management
+ORDER BY SUM(SalesTotal), AVG(SalesTotal)
