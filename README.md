@@ -1,5 +1,5 @@
 # Capstone_1
-Territory "MARYLAND" in Region "NORTH - Writing multiple queries regarding sales manager request from sales database
+Territory "MARYLAND" in Region "NORTHEAST" - Writing multiple queries regarding sales manager request from sales database
 
 --what is the total revenue overall for sales in assigned territory, plus the start/end date?
 
